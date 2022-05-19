@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carsapp="clr-namespace:CarsApp"
+             x:Class="CarsApp.MainPage" Title="Cars Databinding Example">
+
+    <ListView x:Name="CarsListView" ItemsSource="{ Binding Cars}" ItemTapped="CarsListView_ItemTapped" SelectionMode="None" HasUnevenRows="True">
+        
+        
+        <ListView.ItemTemplate>
+            <DataTemplate x:DataType="carsapp:Car">
+                <ViewCell>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition  Height="*"/>
+                            <RowDefinition Height="*" />
+                        </Grid.RowDefinitions>
+
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="20"/>
+                            <ColumnDefinition Width="50"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Margin="5" Source="{Binding ImageName }" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2"  HeightRequest="80" WidthRequest="80" Aspect="AspectFill"/>
+                        <Label Padding="5,0,0,0" Text="{Binding Make}"  Grid.Column="1" Grid.Row="0" FontSize="Medium" FontAttributes="Bold"/>
+                        <Label Padding="5,0,0,0" Text="{Binding Year}" Grid.Column="1" Grid.Row="1"/>
+
+                        <Label Text="{Binding Speed, StringFormat='{0} KM/H'}" Grid.Column="2" Grid.RowSpan="2" HorizontalTextAlignment="End"  VerticalOptions="CenterAndExpand" FontAttributes="Bold" FontSize="15"/>
+
+                        <Frame BackgroundColor="{Binding Colour}" Grid.Column="4" Grid.RowSpan="2" Margin="5" WidthRequest="50" CornerRadius="10"/>
+                    </Grid>
+                    
+                </ViewCell>
+            </DataTemplate>
+            
+            
+        </ListView.ItemTemplate>        
+        
+        
+        
+    </ListView>
+
+</ContentPage>

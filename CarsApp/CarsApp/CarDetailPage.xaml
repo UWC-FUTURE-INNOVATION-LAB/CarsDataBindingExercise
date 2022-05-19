@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:carsapp="clr-namespace:CarsApp"
+             x:Class="CarsApp.CarDetailPage" x:DataType="carsapp:Car" Title="{Binding Make}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="Speed" FontSize="Medium" FontAttributes="Bold"/>
+            <Label Text="{Binding Speed}"/>
+                <Button Text="Drive Faster" Clicked="DriveFasterButton_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
